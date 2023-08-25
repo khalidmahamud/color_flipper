@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Color Flipper || Simple
+    </title>
+
+    <!-- styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="app.js" defer></script>
+  </head>
+
+  <body>
+
+    <main class="w-screen h-screen flex items-center justify-center">
+      <div class="container w-max flex flex-col justify-center items-center gap-10 bg-black rounded-lg shadow-lg p-6">
+        <div>
+          <p class="p-2 text-2xl text-white font-mono font-semibold">HEX: <span id="hex-code" class="">#FFFFFF</span></p>
+          <p class="p-2 text-2xl text-white font-mono font-semibold">RGB: <span id="rgb-code" class="">rgb(255, 255, 255)</span></p>
+          <p class="p-2 text-2xl text-white font-mono font-semibold">HSL: <span id="hsl-code" class="">hsl(0, 0%, 100%)</span></p>
+        </div>
+        <button id="color-change-btn" class="uppercase text-xl px-6 py-3 text-white font-mono border-2 border-white rounded-xl hover:opacity-40">click me</button>
+      </div>
+    </main>
+
+  </body>
+</html>
