@@ -102,8 +102,4 @@ btn.addEventListener('click', () => {
 
     btn.style.color = hslColor;
     btn.style.borderColor = hslColor;
-
-    setTimeout(() => {
-        modal.style.transform = '-translateY(-100%)';
-    }, 1000);
 });
