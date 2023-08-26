@@ -9,12 +9,16 @@
 
     <!-- styles -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script type="text/javascript" src="https://chir.ag/projects/ntc/ntc.js"></script>
     <script src="app.js" defer></script>
   </head>
 
   <body>
 
     <main class="w-screen h-screen flex items-center justify-center">
+      <div class="modal bg-black absolute top-0 -translate-y-full p-6 rounded-md">
+        <p id="color-name" class="p-2 text-3xl text-white font-mono font-semibold">White</p>
+      </div>
       <div class="container w-max flex flex-col justify-center items-center gap-10 bg-black rounded-lg shadow-lg p-6 m-3">
         <div>
           <p class="p-2 text-xl sm:text-2xl text-white font-mono font-semibold">HEX: <span id="hex-code" class="">#FFFFFF</span></p>

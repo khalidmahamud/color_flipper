@@ -4,6 +4,8 @@ const p = document.querySelectorAll('p');
 const hexCode = document.querySelector('#hex-code');
 const rgbCode = document.querySelector('#rgb-code');
 const hslCode = document.querySelector('#hsl-code');
+const modal = document.querySelector('.modal');
+const colorName = document.querySelector('#color-name'); 
 const btn = document.querySelector('#color-change-btn');
 
 
@@ -69,17 +71,11 @@ const randomColor = () => {
     }
 }
 
-function getContrastingColor(r, g, b) {
-	threshold = 130; 
-
-	cBrightness = ((r * 299) + (g * 587) + (b * 114)) / 1000;
-    
-    if (cBrightness > threshold) {
-        return "#000000";
-    } else { 
-        return "#ffffff";
-    }	
+function getContrastingColor(r, g, b){
+    let contrastingColor = ((r*299)+(g*587)+(b*114))/1000;
+	return (contrastingColor >= 128) ? '#000000' : '#FFFFFF';
 }
+
 
 
 btn.addEventListener('click', () => {
@@ -91,11 +87,23 @@ btn.addEventListener('click', () => {
 
     main.style.backgroundColor = hslColor;
     container.style.backgroundColor = getContrastingColor(rgb.r, rgb.g, rgb.b);
+    modal.style.backgroundColor = getContrastingColor(rgb.r, rgb.g, rgb.b);
     p.forEach(p => p.style.color = hslColor);
+
+    const n_match = ntc.name(hexColor);
+    const n_name = n_match[1];
+    colorName.innerText = n_name;
+    modal.style.transform = 'translateY(100%)';
+
+
     hexCode.innerText = `${hexColor.toUpperCase()}`;
     rgbCode.innerText = rgbColor;
     hslCode.innerText = hslColor;
 
     btn.style.color = hslColor;
     btn.style.borderColor = hslColor;
+
+    setTimeout(() => {
+        modal.style.transform = '-translateY(-100%)';
+    }, 1000);
 });
